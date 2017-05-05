@@ -1,0 +1,1 @@
+Library with algorithms for rolling dice using advanced expressions.
