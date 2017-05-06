@@ -3,8 +3,8 @@
 // are changed infrequently
 //
 
-#ifndef STDAFX_H
-#define STDAFX_H
+#ifndef DICE_STDAFX_H
+#define DICE_STDAFX_H
 
 //#include "targetver.h"
 
@@ -18,5 +18,8 @@
 #include <vector>
 #include <queue>
 #include <map>
+#include <chrono>
+#include <random>
+#include <stdexcept>
 
-#endif // !STDAFX_H
+#endif // !DICE_STDAFX_H

@@ -1,10 +1,7 @@
 #ifndef DICE_RANDOMOPERATION_H
 #define DICE_RANDOMOPERATION_H
 
-#include <string>
-#include <random>
-#include <chrono>
-#include <stdexcept>
+#include "../stdafx.h"
 
 #include "IOperation.h"
 
