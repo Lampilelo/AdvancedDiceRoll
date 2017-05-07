@@ -12,14 +12,15 @@
 //#include <tchar.h>
 
 // TODO: reference additional headers your program requires here
-#include <iostream>
-#include <string>
-#include <stack>
-#include <vector>
-#include <queue>
-#include <map>
 #include <chrono>
+#include <iostream>
+#include <map>
+#include <memory>
+#include <queue>
 #include <random>
+#include <stack>
 #include <stdexcept>
+#include <string>
+#include <vector>
 
 #endif // !DICE_STDAFX_H
