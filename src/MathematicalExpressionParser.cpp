@@ -103,7 +103,7 @@ vector<ExpressionNode> infixToPostfix(vector<ExpressionNode> infixExpressionAsLi
 	return postfixList;
 }
 
-int main()
+int test()
 {
 	string infixExp = "2+2*2/(5+3)*4"; //TODO: doesn't work with variables
 	vector<ExpressionNode> infixList = split(infixExp);
