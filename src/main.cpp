@@ -1,8 +1,8 @@
 #include "stdafx.h"
 
-#include "Operations/IOperation.h"
-#include "Operations/GetNumberOperation.h"
-#include "Operations/RandomOperation.h"
+#include "IOperation.h"
+#include "GetNumberOperation.h"
+#include "RandomOperation.h"
 
 int main()
 {

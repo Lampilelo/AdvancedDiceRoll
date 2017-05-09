@@ -1,7 +1,7 @@
 #ifndef DICE_RANDOMOPERATION_H
 #define DICE_RANDOMOPERATION_H
 
-#include "../stdafx.h"
+#include "stdafx.h"
 
 #include "IOperation.h"
 
