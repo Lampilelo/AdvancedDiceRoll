@@ -3,10 +3,9 @@ project("advanced_dice_roll")
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -W -Wall -Wextra -Werror")
 
-set(INCLUDE_DIRS include/gsl src src/Operations)
-file(GLOB SOURCES "src/*.cpp" "src/Operations/*.cpp")
 
+# Add source dir
+add_subdirectory(src)
 
-include_directories(${INCLUDE_DIRS})
-
-add_executable(DiceRoll ${SOURCES})
+# Add includes dir
+#add_subdirectory(include)
