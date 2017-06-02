@@ -1,4 +1,4 @@
-#include "GetNumberOperation.h"
+#include "GetNumberOperation.hpp"
 
 GetNumberOperation::GetNumberOperation(int number) : _number(number)
 {

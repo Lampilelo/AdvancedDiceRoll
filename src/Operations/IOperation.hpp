@@ -1,7 +1,7 @@
 #ifndef DICE_IOPERATION_H
 #define DICE_IOPERATION_H
 
-#include "stdafx.h"
+#include "../stdafx.hpp"
 
 //Base for a Decorator Pattern
 class IOperation

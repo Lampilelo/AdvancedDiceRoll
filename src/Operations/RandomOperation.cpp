@@ -1,4 +1,4 @@
-#include "RandomOperation.h"
+#include "RandomOperation.hpp"
 
 RandomOperation::RandomOperation(int lower, int upper) : _lower(lower), _upper(upper)
 {

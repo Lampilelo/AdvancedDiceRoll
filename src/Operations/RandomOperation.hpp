@@ -1,9 +1,9 @@
 #ifndef DICE_RANDOMOPERATION_H
 #define DICE_RANDOMOPERATION_H
 
-#include "stdafx.h"
+#include "../stdafx.hpp"
 
-#include "IOperation.h"
+#include "IOperation.hpp"
 
 class RandomOperation : public IOperation
 {

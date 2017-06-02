@@ -1,7 +1,7 @@
 #ifndef DICE_GETNUMBEROPERATION_H
 #define DICE_GETNUMBEROPERATION_H
 
-#include "IOperation.h"
+#include "IOperation.hpp"
 
 class GetNumberOperation : public IOperation
 {

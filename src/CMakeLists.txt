@@ -1,18 +1,4 @@
-# All header files for an executable
-file(GLOB HEADERS 
-  "*.h"
-  "Operations/*.h")
+include_directories(Operations)
+file(GLOB OPERATION_SOURCES "Operations/*.cpp")
 
-
-# All source files for an executable
-file(GLOB SOURCES
-  "*.cpp"
-  "Operations/*.cpp")
-
-set(INCLUDE_DIRS
-  Operations
-  .)
-
-include_directories(${INCLUDE_DIRS})
-
-add_executable(DiceRoll ${HEADERS} ${SOURCES})
+add_executable(AdvancedDiceRoll.out main.cpp ${OPERATION_SOURCES})
