@@ -1,6 +1,7 @@
-#include "IOperation.h"
-#include "GetNumberOperation.h"
+#include "GetNumberOperation.hpp"
+#include "gtest/gtest.h"
 
+//TODO: Break into several tests
 TEST(GetNumberOperation, InitializeWithIntegers)
 {
     GetNumberOperation numOpPositive(10);
@@ -25,10 +26,4 @@ TEST(GetNumberOperation, InitializeWithIntegers)
     ASSERT_EQ(numOpZero.getElements()[0], 0);
     ASSERT_EQ(numOpBigPositive.getElements()[0], 2147483647);
     ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
-
-    ASSERT_EQ(numOpPositive.getElements().size(), 1);
-    ASSERT_EQ(numOpNegative.getElements().size(), 1);
-    ASSERT_EQ(numOpZero.getElements().size(), 1);
-    ASSERT_EQ(numOpBigPositive.getElements().size(), 1);
-    ASSERT_EQ(numOpBigNegative.getElements().size(), 1);
 }
