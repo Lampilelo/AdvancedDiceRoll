@@ -35,3 +35,8 @@ if(CMAKE_VERSION VERSION_LESS 2.8.11)
                       "${gmock_SOURCE_DIR}/include")
 endif()
 
+# ================== googletest end ==================
+
+# Enable testing with ctest
+include(CTest)
+add_test(NAME operations_test COMMAND dice_test)
