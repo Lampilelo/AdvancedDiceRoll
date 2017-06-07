@@ -11,8 +11,16 @@ protected:
     int _count;
     IOperation *_componentOp;
 
+    // Execute operation. All heavy lifting for object.
+    virtual void execute() = 0;
+
 public:
-    virtual void evaluate() = 0;
+    // Executes all operations.
+    virtual inline void evaluate()
+    {
+	_componentOp->evaluate();
+	execute();
+    }
     virtual std::string toString() const 
     { 
         std::string result = "";

@@ -6,6 +6,10 @@
 class GetNumberOperation : public IOperation
 {
     const int _number;
+
+protected:
+    void execute();
+    
 public:
     GetNumberOperation(int);
 

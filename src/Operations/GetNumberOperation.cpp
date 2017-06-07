@@ -6,7 +6,12 @@ GetNumberOperation::GetNumberOperation(int number) : _number(number)
     _componentOp = nullptr;
 }
 
-void GetNumberOperation::evaluate() 
+void GetNumberOperation::evaluate()
+{
+    execute();
+}
+
+void GetNumberOperation::execute() 
 { 
     _elements.push_back(_number);
     _count = 1;
