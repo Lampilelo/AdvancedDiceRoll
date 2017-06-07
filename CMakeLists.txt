@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 project("advanced_dice_roll")
 
-set(CMAKE_CXX_FLAGS "-std=c++11 -W -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "-std=c++1y -W -Wall -Wextra -Werror")
 
 include_directories(src src/Operations)
 # Add source dir
