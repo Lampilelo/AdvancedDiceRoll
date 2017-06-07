@@ -10,7 +10,7 @@ int main()
     operation->evaluate();
     std::cout << operation->toString() << std::endl;
 
-    operation.reset(new RandomOperation(6, 7));
+    operation.reset(new RandomOperation(3, 7));
     try
     {
         operation->evaluate();

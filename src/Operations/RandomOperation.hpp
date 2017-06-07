@@ -9,6 +9,7 @@ class RandomOperation : public IOperation
 {
     const int _lower, _upper;
     unsigned int _seed;
+    bool _fixedSeed;
 
 protected:
     void execute();
