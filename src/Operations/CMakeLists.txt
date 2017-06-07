@@ -6,3 +6,5 @@ set(SOURCES
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 add_library(libdice_operations ${SOURCES})
+
+set_property(TARGET libdice_operations PROPERTY CXX_STANDARD 14)
