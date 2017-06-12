@@ -12,5 +12,5 @@ void RollResult::appendErrorLog(const std::string error)
 
 bool RollResult::hasErrors() const
 {
-    return _hasErrors;
+    return !_hasErrors;
 }

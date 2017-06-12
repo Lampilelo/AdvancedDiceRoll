@@ -2,6 +2,7 @@ set(TEST_SOURCES
   main.cpp
   GetNumberOperationTest.cpp
   RandomOperationTest.cpp
+  RollResultTest.cpp
   )
 
 add_executable(dice_test ${TEST_SOURCES})
