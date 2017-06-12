@@ -1,29 +1,52 @@
-#include "GetNumberOperation.hpp"
 #include "gtest/gtest.h"
 
-//TODO: Break into several tests
-TEST(GetNumberOperation, InitializeWithIntegers)
+#include "DiceRoll/Operations/RollResult.h"
+#include "GetNumberOperation.hpp"
+
+TEST(GetNumberOperationTest, InitializeWithIntPositive)
 {
     GetNumberOperation numOpPositive(10);
-    GetNumberOperation numOpNegative(-10);
-    GetNumberOperation numOpZero(0);
-    GetNumberOperation numOpBigPositive(2147483647); //max for int32
-    GetNumberOperation numOpBigNegative(-2147483648); //min for int32
     numOpPositive.evaluate();
-    numOpNegative.evaluate();
-    numOpZero.evaluate();
-    numOpBigPositive.evaluate();
-    numOpBigNegative.evaluate();
-
     ASSERT_EQ(numOpPositive.getCount(), 1);
-    ASSERT_EQ(numOpNegative.getCount(), 1);
-    ASSERT_EQ(numOpZero.getCount(), 1);
-    ASSERT_EQ(numOpBigPositive.getCount(), 1);
-    ASSERT_EQ(numOpBigNegative.getCount(), 1);
-
     ASSERT_EQ(numOpPositive.getElements()[0], 10);
+}
+
+TEST(GetNumberOperationTest, InitializeWithIntNegative)
+{
+    GetNumberOperation numOpNegative(-10);
+    numOpNegative.evaluate();
+    ASSERT_EQ(numOpNegative.getCount(), 1);
     ASSERT_EQ(numOpNegative.getElements()[0], -10);
+}
+
+TEST(GetNumberOperationTest, InitializeWithZero)
+{
+    GetNumberOperation numOpZero(0);
+    numOpZero.evaluate();
+    ASSERT_EQ(numOpZero.getCount(), 1);
     ASSERT_EQ(numOpZero.getElements()[0], 0);
+}
+
+TEST(GetNumberOperationTest, InitializeWithMaxInt32)
+{
+    GetNumberOperation numOpBigPositive(2147483647); //max for int32
+    numOpBigPositive.evaluate();
+    ASSERT_EQ(numOpBigPositive.getCount(), 1);
     ASSERT_EQ(numOpBigPositive.getElements()[0], 2147483647);
+}
+
+TEST(GetNumberOperationTest, InitializeWithMinInt32)
+{
+    GetNumberOperation numOpBigNegative(-2147483648); //min for int32
+    numOpBigNegative.evaluate();
+    ASSERT_EQ(numOpBigNegative.getCount(), 1);
     ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
+}
+
+TEST(GetNumberOperationTest, CannotInitWithFloat)
+{
+    GetNumberOperation numOpFloat(23.4f);
+    RollResult result = numOpFloat.evaluate();
+    EXPECT_TRUE(result.hasErrors());
+    // EXPECT_EQ(dictionary.getErrors("float_init"), result.getError(0));
 }
