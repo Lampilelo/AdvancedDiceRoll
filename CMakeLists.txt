@@ -3,11 +3,13 @@ project("advanced_dice_roll")
 
 set(CMAKE_CXX_FLAGS "-std=c++1y -W -Wall -Wextra -Werror")
 
+include_directories(include)
 include_directories(src src/Operations)
 # Add source dir
 add_subdirectory(src)
 # Add test dir
 add_subdirectory(test)
+
 
 # ==================== googletest ====================
 # Download and unpack googletest at configure time
