@@ -13,5 +13,6 @@ public:
     const std::string& getError(int index) const;
     void appendErrorLog(std::string error);
     bool hasErrors() const;
+    void append(const RollResult& item);
     /* void appendRawResult(std::string ) */
 };
