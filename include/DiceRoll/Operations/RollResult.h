@@ -14,7 +14,6 @@ class RollResult
 public:
     RollResult();
 
-    const std::string& getError(int index) const;
     const std::vector<std::string>& getErrorLog() const;
     void appendErrorLog(std::string error);
     bool hasErrors() const;

@@ -16,12 +16,6 @@ bool RollResult::hasErrors() const
     return _hasErrors;
 }
 
-const std::string& RollResult::getError(int index) const
-{
-    //TODO: We should check bounds.
-    return _errorLog[index];
-}
-
 const std::vector<std::string>& RollResult::getErrorLog() const
 {
     return _errorLog;

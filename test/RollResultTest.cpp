@@ -12,9 +12,9 @@ TEST(RollResultTest, CanAppendErrorLog)
     RollResult rr;
     for (int i = 0; i < 10; i++)
 	rr.appendErrorLog("Error " + std::to_string(i));
-    
+
     for (int i = 0; i < 10; i++)
-	EXPECT_EQ("Error " + std::to_string(i), rr.getError(i));
+	EXPECT_EQ("Error " + std::to_string(i), rr.getErrorLog()[i]);
 }
 
 TEST(RollResultTest, HasErrorsAfterAppendingErrorLog)
@@ -41,5 +41,5 @@ TEST(RollResultTest, AppendsErrorsWithAnotherRollResult)
     rr_one.append(&rr_two);
 
     for (int i = 0; i < 3; i++)
-	EXPECT_EQ("Error " + std::to_string(i), rr_one.getError(i));
+	EXPECT_EQ("Error " + std::to_string(i), rr_one.getErrorLog()[i]);
 }
