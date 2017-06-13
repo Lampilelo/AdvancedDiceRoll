@@ -1,8 +1,8 @@
-#include "stdafx.hpp"
+#include "DiceRoll/stdafx.hpp"
 
-#include "Operations/IOperation.hpp"
-#include "Operations/GetNumberOperation.hpp"
-#include "Operations/RandomOperation.hpp"
+#include "DiceRoll/Operations/IOperation.hpp"
+#include "DiceRoll/Operations/GetNumberOperation.hpp"
+#include "DiceRoll/Operations/RandomOperation.hpp"
 
 int main()
 {

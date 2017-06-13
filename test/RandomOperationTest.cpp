@@ -2,7 +2,7 @@
 #include <memory>
 
 #include "gtest/gtest.h"
-#include "RandomOperation.hpp"
+#include "DiceRoll/Operations/RandomOperation.hpp"
 
 TEST(RandomOperationTest, InitializesWithOneIntPositive)
 {

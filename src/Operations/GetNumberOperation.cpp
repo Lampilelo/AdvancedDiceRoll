@@ -1,4 +1,4 @@
-#include "GetNumberOperation.hpp"
+#include "DiceRoll/Operations/GetNumberOperation.hpp"
 
 GetNumberOperation::GetNumberOperation(int number) : _number(number)
 {

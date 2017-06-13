@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 
 #include "DiceRoll/Operations/RollResult.h"
-#include "GetNumberOperation.hpp"
+#include "DiceRoll/Operations/GetNumberOperation.hpp"
 
 TEST(GetNumberOperationTest, InitializeWithIntPositive)
 {
