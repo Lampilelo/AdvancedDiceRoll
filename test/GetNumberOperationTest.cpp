@@ -46,7 +46,13 @@ TEST(GetNumberOperationTest, InitializeWithMinInt32)
 TEST(GetNumberOperationTest, CannotInitWithFloat)
 {
     GetNumberOperation numOpFloat(23.4f);
-    RollResult result = numOpFloat.evaluate();
-    EXPECT_TRUE(result.hasErrors());
+    std::shared_ptr<RollResult> result = numOpFloat.evaluate();
+    EXPECT_TRUE(result->hasErrors());
     // EXPECT_EQ(dictionary.getErrors("float_init"), result.getError(0));
+}
+
+TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResult)
+{
+    GetNumberOperation numOp(5);
+    std::shared_ptr<RollResult> result = numOp.evaluate();
 }

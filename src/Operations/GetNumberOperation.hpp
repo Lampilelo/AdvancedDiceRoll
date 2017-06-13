@@ -8,12 +8,12 @@ class GetNumberOperation : public IOperation
     const int _number;
 
 protected:
-    void execute();
+    std::shared_ptr<RollResult> execute();
     
 public:
     GetNumberOperation(int);
 
-    void evaluate();
+    std::shared_ptr<RollResult> evaluate();
 };
 
 #endif //DICE_GETNUMBEROPERATION_H

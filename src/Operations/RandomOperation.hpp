@@ -12,14 +12,15 @@ class RandomOperation : public IOperation
     bool _fixedSeed;
 
 protected:
-    void execute();
+    std::shared_ptr<RollResult> execute();
     
 public:
     // If seed is not given, it will randomize using time
     RandomOperation(int upper);
     RandomOperation(int lower, int upper);
 
-    void evaluate(); // Throws exception if lower >= upper
+    // Throws exception if lower >= upper
+    std::shared_ptr<RollResult> evaluate(); 
     void changeSeed(unsigned newSeed);
 };
 

@@ -6,13 +6,16 @@ GetNumberOperation::GetNumberOperation(int number) : _number(number)
     _componentOp = nullptr;
 }
 
-void GetNumberOperation::evaluate()
+std::shared_ptr<RollResult> GetNumberOperation::evaluate()
 {
-    execute();
+    return execute();
 }
 
-void GetNumberOperation::execute() 
+std::shared_ptr<RollResult> GetNumberOperation::execute() 
 { 
     _elements.push_back(_number);
     _count = 1;
+
+    //For now, return dummy RollResult
+    return std::make_shared<RollResult>();
 }
