@@ -2,6 +2,7 @@
 #define DICE_IOPERATION_H
 
 #include "../stdafx.hpp"
+#include "DiceRoll/Operations/RollResult.h"
 
 //Base for a Decorator Pattern
 class IOperation
@@ -12,14 +13,16 @@ protected:
     IOperation *_componentOp;
 
     // Execute operation. All heavy lifting for object.
-    virtual void execute() = 0;
+    virtual std::shared_ptr<RollResult> execute() = 0;
 
 public:
     // Executes all operations.
-    virtual inline void evaluate()
+    // By default, merges _componentOp's RollResult with its.
+    virtual inline std::shared_ptr<RollResult> evaluate()
     {
-	_componentOp->evaluate();
-	execute();
+	std::shared_ptr<RollResult> result = _componentOp->evaluate();
+	result->append(result.get());
+	return result;
     }
     virtual std::string toString() const 
     { 
