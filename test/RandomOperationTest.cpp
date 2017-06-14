@@ -25,11 +25,10 @@ TEST(RandomOperationTest, InitializesWithOneIntPositive)
     op.reset(new RandomOperation(50));
     for (int i = 0; i < 1000; i++)
     {
-	op->evaluate();
-	EXPECT_GE(50, op->getElements()[i]) <<
-	    "Value should be less or equal to 50";
-	EXPECT_LE(1, op->getElements()[i]) <<
-	    "Value should be greater or equal to 1";
-	// std::cout << op->getElements()[i] << std::endl;
+    	op->evaluate();
+    	EXPECT_GE(50, op->getElements()[i]) <<
+    	    "Value should be less or equal to 50";
+    	EXPECT_LE(1, op->getElements()[i]) <<
+    	    "Value should be greater or equal to 1";
     }
 }

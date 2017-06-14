@@ -25,7 +25,7 @@ TEST(RollResultTest, HasErrorsAfterAppendingErrorLog)
     EXPECT_TRUE(rr.hasErrors());
 }
 
-TEST(RollResultTest, GetErrorLogIsWorking)
+TEST(RollResultTest, GetErrorLogInitEmpty)
 {
     RollResult rr;
     EXPECT_TRUE(rr.getErrorLog().empty());

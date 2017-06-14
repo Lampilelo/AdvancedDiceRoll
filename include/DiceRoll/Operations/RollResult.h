@@ -15,7 +15,7 @@ public:
     RollResult();
 
     const std::vector<std::string>& getErrorLog() const;
-    void appendErrorLog(std::string error);
+    void appendErrorLog(const std::string error);
     bool hasErrors() const;
     void append(const RollResult* item);
     /* void appendRawResult(std::string ) */
