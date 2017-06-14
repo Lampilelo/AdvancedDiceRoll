@@ -43,3 +43,21 @@ TEST(RollResultTest, AppendsErrorsWithAnotherRollResult)
     for (int i = 0; i < 3; i++)
 	EXPECT_EQ("Error " + std::to_string(i), rr_one.getErrorLog()[i]);
 }
+
+TEST(RollResultTest, CanSetAndGetOperationLog)
+{
+    RollResult rr;
+    rr.setOperationLog("Lorem ipsum");
+
+    EXPECT_EQ("Lorem ipsum", rr.getOperationLog());
+}
+
+TEST(RollResultTest, GanSetAndGetLastResult)
+{
+    RollResult rr;
+    std::vector<int> vect = {1, 2};
+    rr.setLastResult(vect);
+
+    EXPECT_EQ(1, rr.getLastResult()[0]);
+    EXPECT_EQ(2, rr.getLastResult()[1]);
+}
