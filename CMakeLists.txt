@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 project("advanced_dice_roll")
 
-set(CMAKE_CXX_FLAGS "-std=c++1y -W -Wall -Wextra -Werror")
+set(CMAKE_CXX_FLAGS "-std=c++1y -W -Wall -Wextra -Werror -ggdb")
 
 include_directories(include)
 # Add source dir
@@ -40,4 +40,4 @@ endif()
 
 # Enable testing with ctest
 include(CTest)
-add_test(NAME operations_test COMMAND dice_test)
+add_test(NAME singular_operations_test COMMAND dice_test)
