@@ -10,18 +10,20 @@ class IOperation
 protected:
     std::vector<int> _elements;
     int _count;
-    IOperation *_componentOp;
+    IOperation * const _componentOp;
 
     // Execute operation. All heavy lifting for object.
-    virtual std::shared_ptr<RollResult> execute() = 0;
+    virtual std::unique_ptr<RollResult> execute() = 0;
 
 public:
+    IOperation(IOperation* op) : _componentOp(op) {}
+    
     // Executes all operations.
     // By default, merges _componentOp's RollResult with its.
-    virtual inline std::shared_ptr<RollResult> evaluate()
+    virtual inline std::unique_ptr<RollResult> evaluate()
     {
-	std::shared_ptr<RollResult> result = _componentOp->evaluate();
-	result->append(result.get());
+	std::unique_ptr<RollResult> result = _componentOp->evaluate();
+	result->append(execute().get());
 	return result;
     }
     virtual std::string toString() const 

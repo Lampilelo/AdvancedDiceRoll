@@ -12,7 +12,7 @@ class RandomOperation : public IOperation
     bool _fixedSeed;
 
 protected:
-    std::shared_ptr<RollResult> execute();
+    std::unique_ptr<RollResult> execute();
     
 public:
     // If seed is not given, it will randomize using time
@@ -20,7 +20,7 @@ public:
     RandomOperation(int lower, int upper);
 
     // Throws exception if lower >= upper
-    std::shared_ptr<RollResult> evaluate(); 
+    std::unique_ptr<RollResult> evaluate(); 
     void changeSeed(unsigned newSeed);
 };
 

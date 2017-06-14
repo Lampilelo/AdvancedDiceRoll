@@ -6,14 +6,14 @@
 class GetNumberOperation : public IOperation
 {
     const int _number;
-
+    
 protected:
-    std::shared_ptr<RollResult> execute();
+    std::unique_ptr<RollResult> execute();
     
 public:
-    GetNumberOperation(int);
+    explicit GetNumberOperation(int);
 
-    std::shared_ptr<RollResult> evaluate();
+    std::unique_ptr<RollResult> evaluate();
 };
 
 #endif //DICE_GETNUMBEROPERATION_H

@@ -1,15 +1,15 @@
 #include "DiceRoll/Operations/RandomOperation.hpp"
 
-RandomOperation::RandomOperation(int lower, int upper) : _lower(lower), _upper(upper)
+RandomOperation::RandomOperation(int lower, int upper)
+    : IOperation(nullptr), _lower(lower), _upper(upper)
 {
     _count = 0;
-    _componentOp = nullptr;
     _fixedSeed = false;
 }
 
 RandomOperation::RandomOperation(int upper) : RandomOperation(1, upper) {}
 
-std::shared_ptr<RollResult> RandomOperation::execute() 
+std::unique_ptr<RollResult> RandomOperation::execute() 
 { 
     if(_lower >= _upper) throw std::invalid_argument(
         "In RandomOperation: " + std::to_string(_lower) + " is higher or equal to " + std::to_string(_upper));
@@ -26,10 +26,12 @@ std::shared_ptr<RollResult> RandomOperation::execute()
     _count = 1;
 
     //return dummy roll result
-    return std::make_shared<RollResult>();
+    auto result = std::make_unique<RollResult>();
+    result->appendErrorLog("RandomOperation: " + std::to_string(_elements[0]));
+    return result;
 }
 
-std::shared_ptr<RollResult> RandomOperation::evaluate()
+std::unique_ptr<RollResult> RandomOperation::evaluate()
 {
     return execute();
 }
