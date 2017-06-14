@@ -43,15 +43,6 @@ TEST(GetNumberOperationTest, InitializeWithMinInt32)
     ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
 }
 
-TEST(GetNumberOperationTest, ShouldntInitWithFloatingPoint)
-{
-    float number = 32.2f;
-    GetNumberOperation numOpFloat(number);
-    std::unique_ptr<RollResult> result = numOpFloat.evaluate();
-    EXPECT_TRUE(result->hasErrors());
-    // EXPECT_EQ(translate("Entered floating point variable"), result.getErrorLog()[0];
-}
-
 TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResult)
 {
     GetNumberOperation numOp(5);
