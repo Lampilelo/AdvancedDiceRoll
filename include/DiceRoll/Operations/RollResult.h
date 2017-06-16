@@ -17,7 +17,7 @@ class RollResult
 public:
     RollResult();
 
-    void appendErrorLog(const std::string error);
+    void appendErrorLog(const std::string& error);
     void append(const RollResult* item);
 
     inline bool hasErrors() const { return _hasErrors; }
