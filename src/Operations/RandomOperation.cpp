@@ -23,13 +23,16 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     std::default_random_engine generator(_seed);
     std::uniform_int_distribution<int> distribution(_lower, _upper);
 
+    auto randomNumber = distribution(generator);
+
     // DELETE THIS
-    _elements.push_back(distribution(generator));
+    _elements.push_back(randomNumber);
     _count = 1;
     // END OF DELETE
 
     auto result = std::make_unique<RollResult>();
-    result->appendLastResult(distribution(generator));
+    result->appendLastResult(randomNumber);
+    result->setOperationLog(std::to_string(randomNumber));
     return result;
 }
 
