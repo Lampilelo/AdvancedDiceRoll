@@ -5,7 +5,7 @@
 #include "DiceRoll/Operations/RandomOperation.hpp"
 #include "DiceRoll/Operations/RepeatOperation.h"
 
-TEST(MultiOperationTest, PassingRollResultGenericEvaluate)
+TEST(MultiOperationTest, DISABLED_PassingRollResultGenericEvaluate)
 {
     RandomOperation rand(6);
     rand.changeSeed(2134);
