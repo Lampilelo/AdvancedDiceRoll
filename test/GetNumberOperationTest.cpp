@@ -43,9 +43,20 @@ TEST(GetNumberOperationTest, InitializeWithMinInt32)
     ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
 }
 
-TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResult)
+TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResultLastResult)
 {
     GetNumberOperation numOp(5);
     std::unique_ptr<RollResult> result = numOp.evaluate();
-    FAIL();
+
+    auto& lastResult = result->getLastResult();
+    
+    // Should make RollResult with one capacity, because this
+    // operation generates only one number
+    EXPECT_EQ((size_t)1, lastResult.capacity());
+    EXPECT_EQ((size_t)1, lastResult.size());
+    EXPECT_EQ(5, lastResult[0]);
+
+    EXPECT_EQ("5", result->getOperationLog());
+    EXPECT_TRUE(result->getErrorLog().empty());
 }
+
