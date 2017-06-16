@@ -1,11 +1,10 @@
 #include "DiceRoll/Operations/RollResult.h"
 
 RollResult::RollResult()
-{
-    _hasErrors = false;
-}
+    : _hasErrors(false)
+{ }
 
-void RollResult::appendErrorLog(const std::string error)
+void RollResult::appendErrorLog(const std::string& error)
 {
     _errorLog.push_back(error);
     _hasErrors = true;
