@@ -52,6 +52,19 @@ TEST(RollResultTest, CanSetAndGetOperationLog)
     EXPECT_EQ("Lorem ipsum", rr.getOperationLog());
 }
 
+TEST(RollResultTest, CanAppendLastResult)
+{
+    RollResult rr;
+    rr.appendLastResult(3);
+    rr.appendLastResult(2);
+    rr.appendLastResult(1);
+
+    auto& lastResult = rr.getLastResult();
+    EXPECT_EQ(3, lastResult[0]);
+    EXPECT_EQ(2, lastResult[1]);
+    EXPECT_EQ(1, lastResult[2]);
+}
+
 TEST(RollResultTest, GanSetAndGetLastResult)
 {
     RollResult rr;
@@ -61,3 +74,4 @@ TEST(RollResultTest, GanSetAndGetLastResult)
     EXPECT_EQ(1, rr.getLastResult()[0]);
     EXPECT_EQ(2, rr.getLastResult()[1]);
 }
+
