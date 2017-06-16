@@ -22,12 +22,14 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     
     std::default_random_engine generator(_seed);
     std::uniform_int_distribution<int> distribution(_lower, _upper);
+
+    // DELETE THIS
     _elements.push_back(distribution(generator));
     _count = 1;
+    // END OF DELETE
 
-    //return dummy roll result
     auto result = std::make_unique<RollResult>();
-    result->appendErrorLog("RandomOperation: " + std::to_string(_elements[0]));
+    result->appendLastResult(distribution(generator));
     return result;
 }
 
