@@ -43,7 +43,7 @@ TEST(GetNumberOperationTest, InitializeWithMinInt32)
     ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
 }
 
-TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResultLastResult)
+TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResult)
 {
     GetNumberOperation numOp(5);
     std::unique_ptr<RollResult> result = numOp.evaluate();
