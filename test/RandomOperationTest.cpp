@@ -32,3 +32,23 @@ TEST(RandomOperationTest, InitializesWithOneIntPositive)
     	    "Value should be greater or equal to 1";
     }
 }
+
+TEST(RandomOperationTest, ChangeSeedWorks)
+{
+    RandomOperation op(40);
+    op.changeSeed(345235);
+
+    for (int i = 0; i < 5; i++)
+    {
+	auto result = op.evaluate();
+	EXPECT_EQ(18, result->getLastResult()[0]);
+    }
+
+    op.changeSeed(234124);
+
+    for (int i = 0; i < 5; i++)
+    {
+	auto result = op.evaluate();
+	EXPECT_EQ(7, result->getLastResult()[0]);
+    }
+}
