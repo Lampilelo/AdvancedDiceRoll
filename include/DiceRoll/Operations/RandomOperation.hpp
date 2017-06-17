@@ -12,6 +12,12 @@ class RandomOperation : public IOperation
     bool _fixedSeed;
 
 protected:
+    /**
+     * \brief Generates one random number from range specified in the
+     * constructor.
+     * 
+     * \return Unique pointer to RollResult storing one random number.
+     */
     std::unique_ptr<RollResult> execute();
     
 public:
