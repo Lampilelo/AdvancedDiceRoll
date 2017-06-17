@@ -25,7 +25,20 @@ protected:
     
 public:
     // If seed is not given, it will randomize using time
+    /**
+     * Defines range for RandomOperation. Lower limit is 1, and upper is defined (both are inclusive).
+     * by the user.
+     *
+     * \param upper [in] Upper limit (inclusive) in random range.
+     */
     RandomOperation(int upper);
+    /**
+     * Defines range for RandomOperation. User can specify lower and upper limit (both inclusive).
+     * for randomizing a number.
+     * 
+     * \param lower Lower limit (inclusive) in random range.
+     * \param upper Upper limit (inclusive) in random range.
+     */
     RandomOperation(int lower, int upper);
 
     // Throws exception if lower >= upper
