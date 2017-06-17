@@ -48,7 +48,17 @@ public:
      * \return Returns unique pointer to the RollResult containing one random
      * number from range specified by the constructor.
      */
-    std::unique_ptr<RollResult> evaluate(); 
+    std::unique_ptr<RollResult> evaluate();
+    /**
+     * \brief Sets seed for randomizing a number.
+     *
+     * If seed is not set, it defaults to timestamp so operation generates
+     * random number.\n
+     * If it is set, evaluating the operation will return the same result
+     * every time.
+     * 
+     * \param newSeed Seed for random operation.
+     */
     void changeSeed(unsigned newSeed);
 };
 
