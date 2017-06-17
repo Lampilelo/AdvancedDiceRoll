@@ -42,7 +42,7 @@ public:
      * \brief Evaluates all suboperations and executes itself.
      *
      * By default it calls evaluate() on it's suboperation (_componentOp)
-     * and then appends the result by its own.
+     * and then merges the result with its own.
      * 
      * \return Unique pointer to the result of executing current operation
      * and all suboperations.
