@@ -46,6 +46,7 @@ public:
 	result->append(execute().get());
 	return result;
     }
+    //DELETE THIS
     virtual std::string toString() const 
     { 
         std::string result = "";
@@ -55,6 +56,7 @@ public:
     }
     inline int getCount() const { return _count; }
     inline const std::vector<int> &getElements() const { return _elements; }
+    //END OF DELETE
 };
 
 #endif //DICE_IOPERATION_H
