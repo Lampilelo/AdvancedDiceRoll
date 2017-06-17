@@ -31,6 +31,15 @@ public:
     
     // Executes all operations.
     // By default, merges _componentOp's RollResult with its.
+    /**
+     * \brief Evaluates all suboperations and executes itself.
+     *
+     * By default it calls evaluate() on it's suboperation (_componentOp)
+     * and then appends the result by its own.
+     * 
+     * \return Unique pointer to the result of executing current operation
+     * and all suboperations.
+     */
     virtual inline std::unique_ptr<RollResult> evaluate()
     {
 	std::unique_ptr<RollResult> result = _componentOp->evaluate();
