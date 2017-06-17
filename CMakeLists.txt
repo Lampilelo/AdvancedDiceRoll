@@ -41,3 +41,16 @@ endif()
 # Enable testing with ctest
 include(CTest)
 add_test(NAME singular_operations_test COMMAND dice_test)
+
+
+# ====================== Doxygen =====================
+find_package(Doxygen)
+
+if(DOXYGEN_FOUND)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in
+    ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+  add_custom_target(doc
+    ${DOXYGEN_EXECUTABLE} ${CMAKE_BINARY_DIR}/Doxyfile
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Generating documentation with Doxygen" VERBATIM)
+endif(DOXYGEN_FOUND)
