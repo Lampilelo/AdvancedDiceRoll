@@ -7,8 +7,12 @@
 
 class RandomOperation : public IOperation
 {
+    // Upper and lower limits in range for generating number. These values
+    // are inclusive.
     const int _lower, _upper;
+    // Seed for random number generator that is used in execute().
     unsigned int _seed;
+    // It is true if seed has been set, and false if not.
     bool _fixedSeed;
 
 protected:
