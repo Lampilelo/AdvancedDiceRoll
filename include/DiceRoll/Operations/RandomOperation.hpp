@@ -42,6 +42,12 @@ public:
     RandomOperation(int lower, int upper);
 
     // Throws exception if lower >= upper
+    /**
+     * \brief Calls execute() and does nothing else.
+     * 
+     * \return Returns unique pointer to the RollResult containing one random
+     * number from range specified by the constructor.
+     */
     std::unique_ptr<RollResult> evaluate(); 
     void changeSeed(unsigned newSeed);
 };
