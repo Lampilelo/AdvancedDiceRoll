@@ -8,11 +8,22 @@
 class IOperation
 {
 protected:
+    // DELETE THIS
     std::vector<int> _elements;
     int _count;
+    //END OF DELETE
     IOperation * const _componentOp;
+    
 
-    // Execute operation. All heavy lifting for object.
+    /**
+     * \brief Executes current operation.
+     * 
+     * This is a method that does all the heavy lifting for an operation.
+     *
+     * \return 
+     * Returns unique pointer to RollResult which stores current operation result.
+     * Don't mistake it with evaluate()!
+     */
     virtual std::unique_ptr<RollResult> execute() = 0;
 
 public:
