@@ -12,6 +12,13 @@ protected:
     std::vector<int> _elements;
     int _count;
     //END OF DELETE
+    /**
+     * \brief Suboperation that will be evaluated before current.
+     * 
+     * Stores an object that is a child of IOperation interface.
+     * By default, _componentOp.evaluate() is called before
+     * this->execute() and results are merged together.
+     */
     IOperation * const _componentOp;
     
 
