@@ -17,6 +17,9 @@ protected:
      * constructor.
      * 
      * \return Unique pointer to RollResult storing one random number.
+     *
+     * \exception std::invalid_argument If constructor got bad arguments.
+     * (Lower is less than 1 or/and less than upper)
      */
     std::unique_ptr<RollResult> execute();
     
