@@ -18,15 +18,7 @@ class RandomOperation : public IOperation
     // It is true if seed has been set, and false if not.
     bool _fixedSeed;
 
-    /**
-     * \brief Generates one random number from range specified in the
-     * constructor.
-     * 
-     * \return Unique pointer to RollResult storing one random number.
-     *
-     * \exception std::invalid_argument If constructor got bad arguments.
-     * (Lower is less than 1 or/and less than upper)
-     */
+    // That method is called by evaluate(), so check its doc.
     std::unique_ptr<RollResult> execute();
     
 public:
@@ -36,6 +28,7 @@ public:
      * by the user.
      *
      * \param upper [in] Upper limit (inclusive) in random range.
+     * Have to be greater than 0.
      */
     RandomOperation(int upper);
     /**
@@ -43,16 +36,19 @@ public:
      * for randomizing a number.
      * 
      * \param lower Lower limit (inclusive) in random range.
+     * Have to be lower than upper.
      * \param upper Upper limit (inclusive) in random range.
+     * Have to be greater than lower.
      */
     RandomOperation(int lower, int upper);
 
     // Throws exception if lower >= upper
     /**
-     * \brief Calls execute() and does nothing else.
+     * \brief Generates one random number from range specified in the
+     * constructor.
      * 
-     * \return Returns unique pointer to the RollResult containing one random
-     * number from range specified by the constructor.
+     * \return Unique pointer to RollResult storing one random number
+     * from range specified by the constructor.
      */
     std::unique_ptr<RollResult> evaluate();
     /**
