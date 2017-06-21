@@ -5,6 +5,9 @@
 
 #include "IOperation.hpp"
 
+/**
+ * \brief Randoms a number from a given range.
+ */
 class RandomOperation : public IOperation
 {
     // Upper and lower limits in range for generating number. These values
