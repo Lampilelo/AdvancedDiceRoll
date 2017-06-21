@@ -27,7 +27,6 @@ public:
      * 
      * \param componentOperation Operation that needs to be repeated.
      * \param count How many times should it be repeated.
-     * \return explicit
      */
     explicit RepeatOperation(IOperation* componentOperation,
 			     int count);
