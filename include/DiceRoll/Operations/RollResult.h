@@ -5,6 +5,9 @@
 #include <string>
 #include <memory>
 
+/**
+ * \brief Stores results from evaluating Operations.
+ */
 class RollResult
 {
     bool _hasErrors;
