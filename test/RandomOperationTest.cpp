@@ -9,20 +9,20 @@ TEST(RandomOperationTest, ResultsAreInBounds)
     auto op = std::make_unique<RandomOperation>(50);
     for (int i = 0; i < 1000; i++)
     {
-    	op->evaluate();
-    	EXPECT_GE(50, op->getElements()[i]) <<
+    	auto result = op->evaluate();
+    	EXPECT_GE(50, result->getLastResult()[0]) <<
     	    "Value should be less or equal to 50";
-    	EXPECT_LE(1, op->getElements()[i]) <<
+    	EXPECT_LE(1, result->getLastResult()[0]) <<
     	    "Value should be greater or equal to 1";
     }
 
     op = std::make_unique<RandomOperation>(50, 100);
     for (int i = 0; i < 1000; i++)
     {
-    	op->evaluate();
-    	EXPECT_GE(100, op->getElements()[i]) <<
+    	auto result = op->evaluate();
+    	EXPECT_GE(100, result->getLastResult()[0]) <<
     	    "Value should be less or equal to 100";
-    	EXPECT_LE(50, op->getElements()[i]) <<
+    	EXPECT_LE(50, result->getLastResult()[0]) <<
     	    "Value should be greater or equal to 50";
     }
 }

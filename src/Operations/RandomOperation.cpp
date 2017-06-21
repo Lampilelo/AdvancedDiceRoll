@@ -3,7 +3,6 @@
 RandomOperation::RandomOperation(int lower, int upper)
     : IOperation(nullptr), _lower(lower), _upper(upper)
 {
-    _count = 0;
     _fixedSeed = false;
 }
 
@@ -24,11 +23,6 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     std::uniform_int_distribution<int> distribution(_lower, _upper);
 
     auto randomNumber = distribution(generator);
-
-    // DELETE THIS
-    _elements.push_back(randomNumber);
-    _count = 1;
-    // END OF DELETE
 
     auto result = std::make_unique<RollResult>();
     result->appendLastResult(randomNumber);

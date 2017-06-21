@@ -6,47 +6,47 @@
 TEST(GetNumberOperationTest, InitializeWithIntPositive)
 {
     GetNumberOperation numOpPositive(10);
-    numOpPositive.evaluate();
-    ASSERT_EQ(numOpPositive.getCount(), 1);
-    ASSERT_EQ(numOpPositive.getElements()[0], 10);
+    auto result = numOpPositive.evaluate();
+    EXPECT_EQ((size_t)1, result->getLastResult().size());
+    EXPECT_EQ(10, result->getLastResult()[0]);
 }
 
 TEST(GetNumberOperationTest, InitializeWithIntNegative)
 {
     GetNumberOperation numOpNegative(-10);
-    numOpNegative.evaluate();
-    ASSERT_EQ(numOpNegative.getCount(), 1);
-    ASSERT_EQ(numOpNegative.getElements()[0], -10);
+    auto result = numOpNegative.evaluate();
+    EXPECT_EQ((size_t)1, result->getLastResult().size());
+    EXPECT_EQ(-10, result->getLastResult()[0]);
 }
 
 TEST(GetNumberOperationTest, InitializeWithZero)
 {
     GetNumberOperation numOpZero(0);
-    numOpZero.evaluate();
-    ASSERT_EQ(numOpZero.getCount(), 1);
-    ASSERT_EQ(numOpZero.getElements()[0], 0);
+    auto result = numOpZero.evaluate();
+    EXPECT_EQ((size_t)1, result->getLastResult().size());
+    EXPECT_EQ(0, result->getLastResult()[0]);
 }
 
 TEST(GetNumberOperationTest, InitializeWithMaxInt32)
 {
     GetNumberOperation numOpBigPositive(2147483647); //max for int32
-    numOpBigPositive.evaluate();
-    ASSERT_EQ(numOpBigPositive.getCount(), 1);
-    ASSERT_EQ(numOpBigPositive.getElements()[0], 2147483647);
+    auto result = numOpBigPositive.evaluate();
+    EXPECT_EQ((size_t)1, result->getLastResult().size());
+    EXPECT_EQ(2147483647, result->getLastResult()[0]);
 }
 
 TEST(GetNumberOperationTest, InitializeWithMinInt32)
 {
     GetNumberOperation numOpBigNegative(-2147483648); //min for int32
-    numOpBigNegative.evaluate();
-    ASSERT_EQ(numOpBigNegative.getCount(), 1);
-    ASSERT_EQ(numOpBigNegative.getElements()[0], -2147483648);
+    auto result = numOpBigNegative.evaluate();
+    EXPECT_EQ((size_t)1, result->getLastResult().size());
+    EXPECT_EQ(-2147483648, result->getLastResult()[0]);
 }
 
 TEST(GetNumberOperationTest, EvaluateReturnsCorrectRollResult)
 {
     GetNumberOperation numOp(5);
-    std::unique_ptr<RollResult> result = numOp.evaluate();
+    auto result = numOp.evaluate();
 
     auto& lastResult = result->getLastResult();
     

@@ -2,9 +2,7 @@
 
 GetNumberOperation::GetNumberOperation(int number)
     : IOperation(nullptr), _number(number)
-{
-    _count = 0;
-}
+{ }
 
 std::unique_ptr<RollResult> GetNumberOperation::evaluate()
 {
@@ -13,11 +11,6 @@ std::unique_ptr<RollResult> GetNumberOperation::evaluate()
 
 std::unique_ptr<RollResult> GetNumberOperation::execute() 
 {
-    // DELETE THIS
-    _elements.push_back(_number);
-    _count = 1;
-    // END OF DELETE
-
     //For now, return dummy RollResult
     auto result = std::make_unique<RollResult>();
     result->appendLastResult(_number);

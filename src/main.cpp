@@ -3,20 +3,21 @@
 #include "DiceRoll/Operations/IOperation.hpp"
 #include "DiceRoll/Operations/GetNumberOperation.hpp"
 #include "DiceRoll/Operations/RandomOperation.hpp"
+#include "DiceRoll/Operations/RollResult.h"
 
 int main()
 {
     std::unique_ptr<IOperation> operation(new GetNumberOperation(1));
-    operation->evaluate();
-    std::cout << operation->toString() << std::endl;
+    std::unique_ptr<RollResult> result = operation->evaluate();
+    std::cout << result->getOperationLog() << '\n';
 
     operation.reset(new RandomOperation(3, 7));
     try
     {
-        operation->evaluate();
+        result = operation->evaluate();
     }
-    catch (std::exception& e) { std::cout << e.what() << std::endl; }
-    std::cout << operation->toString() << std::endl;
+    catch (std::exception& e) { std::cout << e.what() << '\n'; }
+    std::cout << result->getOperationLog() << '\n';
 
     return 0;
 }
