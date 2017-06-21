@@ -5,9 +5,9 @@
 
 class GetNumberOperation : public IOperation
 {
-    const int _number;
-    
-protected:
+    const int _number;		// stores number given by a constructor
+
+    // It's called directly by evaluate, so check its doc.
     std::unique_ptr<RollResult> execute();
     
 public:
