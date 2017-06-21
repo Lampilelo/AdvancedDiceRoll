@@ -5,6 +5,11 @@
 #include "DiceRoll/Operations/RollResult.h"
 
 //Base for a Decorator Pattern
+/**
+ * \brief An interface for the Operation classes.
+ * 
+ * It is a base for the Decorator Pattern.
+ */
 class IOperation
 {
 protected:
