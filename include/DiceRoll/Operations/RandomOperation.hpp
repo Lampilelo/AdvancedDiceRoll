@@ -18,7 +18,6 @@ class RandomOperation : public IOperation
     // It is true if seed has been set, and false if not.
     bool _fixedSeed;
 
-protected:
     /**
      * \brief Generates one random number from range specified in the
      * constructor.
