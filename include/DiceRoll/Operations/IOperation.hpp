@@ -17,6 +17,7 @@ protected:
     std::vector<int> _elements;
     int _count;
     //END OF DELETE
+private:
     /**
      * \brief Suboperation that will be evaluated before current.
      * 
@@ -26,7 +27,6 @@ protected:
      */
     IOperation * const _componentOp;
     
-
     /**
      * \brief Executes current operation.
      * 
