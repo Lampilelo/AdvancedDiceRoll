@@ -26,9 +26,18 @@ int MockOperation::count = 0;
 
 TEST(RepeatOperationTest, EvaluateWithPositiveCount)
 {
+    MockOperation::count = 0;
     MockOperation baseOp;
     RepeatOperation repeatOp(&baseOp , 3);
-    repeatOp.evaluate();
-
-    FAIL() << "Not implemented";
+    
+    auto result = repeatOp.evaluate();
+    EXPECT_EQ("(1 2 3)", result->getOperationLog());
+    
+    std::vector<int> expectedLastResult{1, 2, 3};
+    EXPECT_EQ(expectedLastResult, result->getLastResult());
+    EXPECT_FALSE(result->hasErrors());
 }
+
+//TODO: Add test that makes sure that RepeatOperation won't work on
+//      multiple value operation, just singular value.
+
