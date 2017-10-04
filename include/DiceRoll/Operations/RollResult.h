@@ -117,6 +117,17 @@ public:
 
     /**
      * \brief Setter for the last result.
+     *
+     * Sets last result vector to be one length with given value at index 0.
+     */
+    inline void setLastResult(int newResult)
+    {
+	_lastResult.clear();
+	_lastResult.push_back(newResult);
+    }
+
+    /**
+     * \brief Setter for the last result.
      * 
      * Rvalue version.
      */
