@@ -4,6 +4,7 @@ set(TEST_SOURCES
   RandomOperationTest.cpp
   RollResultTest.cpp
   MultiOperationTest.cpp
+  RepeatOperationTest.cpp
   )
 
 add_executable(dice_test ${TEST_SOURCES})
