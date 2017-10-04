@@ -24,7 +24,8 @@ class RepeatOperation : public IOperation
 public:
     /**
      * \brief RepeatOperation
-     * 
+     * Multiple value operation.
+     *
      * \param componentOperation Operation that needs to be repeated.
      * \param count How many times should it be repeated.
      */
