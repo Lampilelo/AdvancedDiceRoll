@@ -12,8 +12,6 @@
  */
 class IOperation
 {
-    IOperation * const _componentOp;
-    
     /**
      * \brief Executes current operation.
      * 
@@ -24,6 +22,9 @@ class IOperation
      * Don't mistake it with evaluate()!
      */
     virtual std::unique_ptr<RollResult> execute() = 0;
+
+protected:
+    IOperation * const _componentOp;
 
 public:
     IOperation(IOperation* op) : _componentOp(op) {}
