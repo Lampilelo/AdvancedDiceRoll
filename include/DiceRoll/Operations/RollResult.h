@@ -94,6 +94,14 @@ public:
     { return _lastResult; }
 
     /**
+     * \brief Method for appending last result vector.
+     * 
+     * \param number Integer value to append to the last result vector.
+     */
+    inline void appendLastResult(int number)
+    { _lastResult.push_back(number); }
+    
+    /**
      * \brief Setter for the last result.
      */
     inline void setLastResult(std::vector<int> &newResult)
@@ -106,14 +114,6 @@ public:
      */
     inline void setLastResult(std::vector<int>&& newResult)
     { _lastResult = std::move(newResult); }
-
-    /**
-     * \brief Method for appending last result vector.
-     * 
-     * \param number Integer value to append to the last result vector.
-     */
-    inline void appendLastResult(int number)
-    { _lastResult.push_back(number); }
 };
 
 
