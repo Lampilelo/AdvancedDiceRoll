@@ -9,6 +9,16 @@ RepeatOperation::RepeatOperation(IOperation* componentOperation,
 std::unique_ptr<RollResult> RepeatOperation::execute()
 {
     auto result = std::make_unique<RollResult>();
-    result->appendErrorLog("RepeatOperation");
+    std::string operationLog = "(";
+    for (int i = 0; i < _count; ++i)
+	{
+	    auto componentResult = _componentOp->evaluate();
+	    // make sequence of numbers divided by spaces
+	    operationLog.append(componentResult->getOperationLog() + " ");
+	    result->appendLastResult(componentResult->getLastResult());
+	}
+    operationLog[operationLog.length()-1] = ')'; // change last space to ')'
+    result->setOperationLog(operationLog);
+    
     return result;
 }

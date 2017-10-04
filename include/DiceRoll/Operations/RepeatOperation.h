@@ -31,6 +31,16 @@ public:
      */
     explicit RepeatOperation(IOperation* componentOperation,
 			     int count);
+
+    /**
+     * \brief Evaluates component operation multiple times.
+     * Evaluates component operation multiple times as specified in the 
+     * constructor.
+     *
+     *\return Unique pointer to multiple valued RollResult.
+     */
+    inline std::unique_ptr<RollResult> evaluate()
+    { return execute(); }
 };
 
 #endif /* REPEATOPERATION_H */
