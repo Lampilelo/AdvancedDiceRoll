@@ -100,6 +100,14 @@ public:
      */
     inline void appendLastResult(int number)
     { _lastResult.push_back(number); }
+
+    /**
+     * \brief Method for appending last result vector.
+     *
+     * \param vector Vector to be inserted at the end of last result vector.
+     */
+    inline void appendLastResult(const std::vector<int> &vector)
+    { _lastResult.insert(_lastResult.end(), vector.begin(), vector.end()); }
     
     /**
      * \brief Setter for the last result.
