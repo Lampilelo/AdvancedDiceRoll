@@ -7,6 +7,12 @@ TEST(RollResultTest, InitWithEmptyErrorLog)
     EXPECT_FALSE(rr.hasErrors());
 }
 
+TEST(RollResultTest, InitWithEmptyOperationLog)
+{
+    RollResult rr;
+    EXPECT_EQ("", rr.getOperationLog());
+}
+
 TEST(RollResultTest, CanAppendErrorLog)
 {
     RollResult rr;
