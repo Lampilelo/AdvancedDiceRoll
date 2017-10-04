@@ -75,3 +75,25 @@ TEST(RollResultTest, GanSetAndGetLastResult)
     EXPECT_EQ(2, rr.getLastResult()[1]);
 }
 
+TEST(RollResultTest, SetLastResultWithInt)
+{
+    RollResult rr;
+    rr.setLastResult(5);
+
+    EXPECT_EQ(5, rr.getLastResult()[0]);
+}
+
+TEST(RollResultTest, AppendLastResultWithVector)
+{
+    RollResult rr;
+    std::vector<int> vect{1, 2, 3};
+
+    rr.appendLastResult(vect);
+    ASSERT_EQ(vect, rr.getLastResult());
+
+    rr.appendLastResult(vect);
+    vect = rr.getLastResult();
+    ASSERT_EQ(1, vect[3]);
+    ASSERT_EQ(2, vect[4]);
+    ASSERT_EQ(3, vect[5]);
+}
