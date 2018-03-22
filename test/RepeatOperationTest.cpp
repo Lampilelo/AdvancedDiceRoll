@@ -24,6 +24,7 @@ public:
 };
 int MockOperation::count = 0;
 
+// Test to check if repeating even works (without the same result).
 TEST(RepeatOperationTest, EvaluateWithPositiveCount)
 {
     MockOperation::count = 0;
