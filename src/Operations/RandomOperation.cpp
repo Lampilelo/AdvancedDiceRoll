@@ -13,11 +13,12 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     if(_lower >= _upper) throw std::invalid_argument(
         "In RandomOperation: " + std::to_string(_lower) + " is higher or equal to " + std::to_string(_upper));
 
-    //we'll use clock to seed the random
+
+    //we'll use random_device to seed the random
     //if you want to change it, call changeSeed function
+    std::random_device r;
     if (false == _fixedSeed)
-	_seed = std::chrono::system_clock::now()
-	    .time_since_epoch().count();
+	_seed = r();
     
     std::default_random_engine generator(_seed);
     std::uniform_int_distribution<int> distribution(_lower, _upper);
