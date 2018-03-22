@@ -2,6 +2,7 @@
 
 #include "DiceRoll/Operations/RollResult.h"
 #include "DiceRoll/Operations/RepeatOperation.h"
+#include "DiceRoll/Operations/RandomOperation.hpp"
 
 class MockOperation : public IOperation
 {
@@ -37,6 +38,20 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
     std::vector<int> expectedLastResult{1, 2, 3};
     EXPECT_EQ(expectedLastResult, result->getLastResult());
     EXPECT_FALSE(result->hasErrors());
+}
+
+TEST(RepeatOperationTest, RepeatRandomOperation)
+{
+    RandomOperation op(10);
+    RepeatOperation repeatOp(&op, 5);
+    auto result = repeatOp.evaluate();
+    // std::cout << result->getOperationLog();
+
+    ASSERT_EQ(5, result->getLastResultSize());
+    for(auto item: result->getLastResult()) {
+	EXPECT_GE(item, 1);
+	EXPECT_LE(item, 10);
+    }
 }
 
 //TODO: Add test that makes sure that RepeatOperation won't work on
