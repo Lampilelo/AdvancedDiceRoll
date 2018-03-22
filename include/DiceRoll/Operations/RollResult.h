@@ -94,6 +94,12 @@ public:
     { return _lastResult; }
 
     /**
+     * \brief Size of the last result vector.
+     */
+    inline size_t getLastResultSize() const
+    { return _lastResult.size(); }
+
+    /**
      * \brief Method for appending last result vector.
      * 
      * \param number Integer value to append to the last result vector.
