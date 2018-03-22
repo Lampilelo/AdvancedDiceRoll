@@ -43,11 +43,10 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
 TEST(RepeatOperationTest, RepeatRandomOperation)
 {
     RandomOperation op(10);
-    RepeatOperation repeatOp(&op, 5);
+    RepeatOperation repeatOp(&op, 100);
     auto result = repeatOp.evaluate();
-    // std::cout << result->getOperationLog();
 
-    ASSERT_EQ(5, result->getLastResultSize());
+    ASSERT_EQ(100, result->getLastResultSize());
     for(auto item: result->getLastResult()) {
 	EXPECT_GE(item, 1);
 	EXPECT_LE(item, 10);
