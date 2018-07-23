@@ -24,12 +24,12 @@ public:
 	}
 };
 int MockOperation::count = 0;
+MockOperation baseOp;
 
 // Test to check if repeating even works (without the same result).
 TEST(RepeatOperationTest, EvaluateWithPositiveCount)
 {
     MockOperation::count = 0;
-    MockOperation baseOp;
     RepeatOperation repeatOp(&baseOp , 3);
     
     auto result = repeatOp.evaluate();
@@ -42,7 +42,6 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
 TEST(RepeatOperationTest, CantInitializeWithCountLowerThan2)
 {
   MockOperation::count = 0;
-  MockOperation baseOp;
 
   ASSERT_ANY_THROW(RepeatOperation(&baseOp, 1));
   ASSERT_ANY_THROW(RepeatOperation(&baseOp, -1));
