@@ -62,4 +62,16 @@ TEST(RepeatOperationTest, RepeatRandomOperation)
 
 //TODO: Add test that makes sure that RepeatOperation won't work on
 //      multiple value operation, just singular value.
+TEST(RepeatOperationTest, CanRepeatRepeatOperation)
+{
+  MockOperation::count = 0;
 
+  RepeatOperation repOp(&baseOp, 3);
+  ASSERT_NO_THROW(RepeatOperation(&repOp, 3));
+  RepeatOperation repOpFinal = RepeatOperation(&repOp, 3);
+  auto result = repOpFinal.evaluate();
+
+  EXPECT_EQ(result->getFullResult(), "((1 2 3) (4 5 6) (7 8 9))");
+  EXPECT_EQ(result->getShortResult(),
+            std::vector<int>({1, 2, 3, 4, 5, 6, 7, 8, 9}));
+}
