@@ -27,7 +27,11 @@ public:
      * Multiple value operation.
      *
      * \param componentOperation Operation that needs to be repeated.
-     * \param count How many times should it be repeated.
+     * \param count
+     * \parblock
+     * How many times should it be repeated.
+     * Can't be lower than 1. If 1, it would not repeat.
+     * \endparblock
      */
     explicit RepeatOperation(IOperation* componentOperation,
 			     int count);

@@ -1,9 +1,14 @@
 #include "DiceRoll/Operations/RepeatOperation.h"
+#include <string>
 
 RepeatOperation::RepeatOperation(IOperation* componentOperation,
 				 int count)
     : IOperation(componentOperation), _count(count)
 {
+  if (_count < 2)
+    throw std::range_error(
+        "Can't repeat less than 2 times. Given repeat count: " +
+        std::to_string(_count));
 }
 
 std::unique_ptr<RollResult> RepeatOperation::execute()

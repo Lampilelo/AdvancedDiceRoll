@@ -39,6 +39,15 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
     EXPECT_FALSE(result->hasErrors());
 }
 
+TEST(RepeatOperationTest, CantInitializeWithCountLowerThan2)
+{
+  MockOperation::count = 0;
+  MockOperation baseOp;
+
+  ASSERT_ANY_THROW(RepeatOperation(&baseOp, 1));
+  ASSERT_ANY_THROW(RepeatOperation(&baseOp, -1));
+}
+
 TEST(RepeatOperationTest, RepeatRandomOperation)
 {
     RandomOperation op(10);
