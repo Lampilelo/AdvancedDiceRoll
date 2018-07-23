@@ -35,8 +35,7 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
     auto result = repeatOp.evaluate();
     EXPECT_EQ("(1 2 3)", result->getOperationLog());
     
-    std::vector<int> expectedLastResult{1, 2, 3};
-    EXPECT_EQ(expectedLastResult, result->getLastResult());
+    EXPECT_EQ(std::vector<int>({1, 2, 3}), result->getShortResult());
     EXPECT_FALSE(result->hasErrors());
 }
 
