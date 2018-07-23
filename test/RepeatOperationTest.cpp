@@ -18,8 +18,8 @@ public:
     std::unique_ptr<RollResult> evaluate()
 	{
 	    auto result = std::make_unique<RollResult>();
-	    result->setOperationLog(std::to_string(++count));
-	    result->setLastResult(count);
+	    result->setFullResult(std::to_string(++count));
+	    result->setShortResult(count);
 	    return result;
 	}
 };
@@ -33,7 +33,7 @@ TEST(RepeatOperationTest, EvaluateWithPositiveCount)
     RepeatOperation repeatOp(&baseOp , 3);
     
     auto result = repeatOp.evaluate();
-    EXPECT_EQ("(1 2 3)", result->getOperationLog());
+    EXPECT_EQ("(1 2 3)", result->getFullResult());
     
     EXPECT_EQ(std::vector<int>({1, 2, 3}), result->getShortResult());
     EXPECT_FALSE(result->hasErrors());
@@ -45,8 +45,8 @@ TEST(RepeatOperationTest, RepeatRandomOperation)
     RepeatOperation repeatOp(&op, 100);
     auto result = repeatOp.evaluate();
 
-    ASSERT_EQ(100, result->getLastResultSize());
-    for(auto item: result->getLastResult()) {
+    ASSERT_EQ(100, result->getShortResultSize());
+    for(auto item: result->getShortResult()) {
 	EXPECT_GE(item, 1);
 	EXPECT_LE(item, 10);
     }

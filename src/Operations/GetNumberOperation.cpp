@@ -12,7 +12,7 @@ std::unique_ptr<RollResult> GetNumberOperation::evaluate()
 std::unique_ptr<RollResult> GetNumberOperation::execute() 
 {
     auto result = std::make_unique<RollResult>();
-    result->appendLastResult(_number);
-    result->setOperationLog(std::to_string(_number));
+    result->appendShortResult(_number);
+    result->setFullResult(std::to_string(_number));
     return result;
 }

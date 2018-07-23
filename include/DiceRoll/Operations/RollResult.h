@@ -17,11 +17,11 @@ class RollResult
 
     // string record for all operations that have been evaluated
     // it should be readable to the user and you should be able to
-    // place equals sign between _operationLog and _lastResult
-    std::string _operationLog;
+    // place equals sign between _fullResult and _shortResult
+    std::string fullResult_;
     
     // every operation should store its result in that variable
-    std::vector<int> _lastResult;
+    std::vector<int> shortResult_;
 
 public:
     RollResult();
@@ -56,89 +56,89 @@ public:
     { return _errorLog; }
 
     /**
-     * \brief Accessor to an operation log.
+     * \brief Accessor to an full result.
      * 
      * \return All operations log in string form.
      */
-    inline const std::string& getOperationLog() const
-    { return _operationLog; }
+    inline const std::string& getFullResult() const
+    { return fullResult_; }
 
     /**
-     * \brief Replaces operation log with one passed by an argument.
+     * \brief Replaces full result with one passed by an argument.
      * 
-     * \param newOpLog New operation log.
+     * \param newOpLog New full result.
      */
-    inline void setOperationLog(const std::string& newOpLog)
-    { _operationLog = newOpLog; }
+    inline void setFullResult(const std::string& newOpLog)
+    { fullResult_ = newOpLog; }
 
     /**
-     * \brief Replaces operation log with one passed by an argument.
+     * \brief Replaces full result with one passed by an argument.
      *
      * Rvalue version.
      *
-     * \param newOpLog New operation log in form of an rvalue.
+     * \param newOpLog New full result in form of an rvalue.
      */
-    inline void setOperationLog(std::string&& newOpLog)
-    { _operationLog = std::move(newOpLog); }
+    inline void setFullResult(std::string&& newOpLog)
+    { fullResult_ = std::move(newOpLog); }
 
     /**
-     * \brief Accessor to the last result vector.
+     * \brief Accessor to the short result vector.
      * 
      * Some operations return singular value (i.e. RandomOperation) so
-     * last result will be vector of 1 length containing that number.
+     * short result will be vector of 1 length containing that number.
      * Other operations (like RepeatOperation) return multiple integers.
      *
-     * \return Vector of ints that contains last operation results.
+     * \return Vector of ints that contains short operation results.
      */
-    inline const std::vector<int>& getLastResult() const
-    { return _lastResult; }
+    inline const std::vector<int>& getShortResult() const
+    { return shortResult_; }
 
     /**
-     * \brief Size of the last result vector.
+     * \brief Size of the short result vector.
      */
-    inline size_t getLastResultSize() const
-    { return _lastResult.size(); }
+    inline size_t getShortResultSize() const
+    { return shortResult_.size(); }
 
     /**
-     * \brief Method for appending last result vector.
+     * \brief Method for appending short short vector.
      * 
-     * \param number Integer value to append to the last result vector.
+     * \param number Integer value to append to the short result vector.
      */
-    inline void appendLastResult(int number)
-    { _lastResult.push_back(number); }
+    inline void appendShortResult(int number)
+    { shortResult_.push_back(number); }
 
     /**
-     * \brief Method for appending last result vector.
+     * \brief Method for appending short result vector.
      *
-     * \param vector Vector to be inserted at the end of last result vector.
+     * \param vector Vector to be inserted at the end of short result vector.
      */
-    inline void appendLastResult(const std::vector<int> &vector)
-    { _lastResult.insert(_lastResult.end(), vector.begin(), vector.end()); }
+    inline void appendShortResult(const std::vector<int> &vector)
+    { shortResult_.insert(shortResult_.end(), vector.begin(), vector.end()); }
     
     /**
-     * \brief Setter for the last result.
+     * \brief Setter for the short result.
      */
-    inline void setLastResult(std::vector<int> &newResult)
-    { _lastResult = newResult; }
+    inline void setShortResult(std::vector<int> &newResult)
+    { shortResult_ = newResult; }
 
     /**
-     * \brief Setter for the last result.
+     * \brief Setter for the short result.
      *
-     * Sets last result vector to be one length with given value at index 0.
+     * Sets short result vector to be one length with given value at index 0.
      */
-    inline void setLastResult(int newResult)
+    inline void setShortResult(int newResult)
     {
-	_lastResult.clear();
-	_lastResult.push_back(newResult);
+	shortResult_.clear();
+	shortResult_.push_back(newResult);
     }
 
     /**
-     * \brief Setter for the last result.
+     * \brief Setter for the short result.
      * 
      * Rvalue version.
      */
-    inline void setLastResult(std::vector<int>&& newResult)
-    { _lastResult = std::move(newResult); }
+    inline void setShortResult(std::vector<int>&& newResult)
+    { shortResult_ = std::move(newResult); }
 };
 
 

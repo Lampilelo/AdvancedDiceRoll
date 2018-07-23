@@ -9,7 +9,7 @@ int main()
 {
     std::unique_ptr<IOperation> operation(new GetNumberOperation(1));
     std::unique_ptr<RollResult> result = operation->evaluate();
-    std::cout << result->getOperationLog() << '\n';
+    std::cout << result->getFullResult() << '\n';
 
     operation.reset(new RandomOperation(3, 7));
     try
@@ -17,7 +17,7 @@ int main()
         result = operation->evaluate();
     }
     catch (std::exception& e) { std::cout << e.what() << '\n'; }
-    std::cout << result->getOperationLog() << '\n';
+    std::cout << result->getFullResult() << '\n';
 
     return 0;
 }

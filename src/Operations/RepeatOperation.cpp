@@ -14,11 +14,11 @@ std::unique_ptr<RollResult> RepeatOperation::execute()
 	{
 	    auto componentResult = _componentOp->evaluate();
 	    // make sequence of numbers divided by spaces
-	    operationLog.append(componentResult->getOperationLog() + " ");
-	    result->appendLastResult(componentResult->getLastResult());
+	    operationLog.append(componentResult->getFullResult() + " ");
+	    result->appendShortResult(componentResult->getShortResult());
 	}
     operationLog[operationLog.length()-1] = ')'; // change last space to ')'
-    result->setOperationLog(operationLog);
+    result->setFullResult(operationLog);
     
     return result;
 }

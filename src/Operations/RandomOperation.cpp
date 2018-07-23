@@ -26,8 +26,8 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     auto randomNumber = distribution(generator);
 
     auto result = std::make_unique<RollResult>();
-    result->appendLastResult(randomNumber);
-    result->setOperationLog(std::to_string(randomNumber));
+    result->appendShortResult(randomNumber);
+    result->setFullResult(std::to_string(randomNumber));
     return result;
 }
 

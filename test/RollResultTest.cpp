@@ -7,10 +7,10 @@ TEST(RollResultTest, InitWithEmptyErrorLog)
     EXPECT_FALSE(rr.hasErrors());
 }
 
-TEST(RollResultTest, InitWithEmptyOperationLog)
+TEST(RollResultTest, InitWithEmptyFullResult)
 {
     RollResult rr;
-    EXPECT_EQ("", rr.getOperationLog());
+    EXPECT_EQ("", rr.getFullResult());
 }
 
 TEST(RollResultTest, CanAppendErrorLog)
@@ -50,55 +50,55 @@ TEST(RollResultTest, AppendsErrorsWithAnotherRollResult)
 	EXPECT_EQ("Error " + std::to_string(i), rr_one.getErrorLog()[i]);
 }
 
-TEST(RollResultTest, CanSetAndGetOperationLog)
+TEST(RollResultTest, CanSetAndGetFullResult)
 {
     RollResult rr;
-    rr.setOperationLog("Lorem ipsum");
+    rr.setFullResult("Lorem ipsum");
 
-    EXPECT_EQ("Lorem ipsum", rr.getOperationLog());
+    EXPECT_EQ("Lorem ipsum", rr.getFullResult());
 }
 
-TEST(RollResultTest, CanAppendLastResult)
+TEST(RollResultTest, CanAppendShortResult)
 {
     RollResult rr;
-    rr.appendLastResult(3);
-    rr.appendLastResult(2);
-    rr.appendLastResult(1);
+    rr.appendShortResult(3);
+    rr.appendShortResult(2);
+    rr.appendShortResult(1);
 
-    auto& lastResult = rr.getLastResult();
+    auto& lastResult = rr.getShortResult();
     EXPECT_EQ(3, lastResult[0]);
     EXPECT_EQ(2, lastResult[1]);
     EXPECT_EQ(1, lastResult[2]);
 }
 
-TEST(RollResultTest, GanSetAndGetLastResult)
+TEST(RollResultTest, GanSetAndGetShortResult)
 {
     RollResult rr;
     std::vector<int> vect = {1, 2};
-    rr.setLastResult(vect);
+    rr.setShortResult(vect);
 
-    EXPECT_EQ(1, rr.getLastResult()[0]);
-    EXPECT_EQ(2, rr.getLastResult()[1]);
+    EXPECT_EQ(1, rr.getShortResult()[0]);
+    EXPECT_EQ(2, rr.getShortResult()[1]);
 }
 
-TEST(RollResultTest, SetLastResultWithInt)
+TEST(RollResultTest, SetShortResultWithInt)
 {
     RollResult rr;
-    rr.setLastResult(5);
+    rr.setShortResult(5);
 
-    EXPECT_EQ(5, rr.getLastResult()[0]);
+    EXPECT_EQ(5, rr.getShortResult()[0]);
 }
 
-TEST(RollResultTest, AppendLastResultWithVector)
+TEST(RollResultTest, AppendShortResultWithVector)
 {
     RollResult rr;
     std::vector<int> vect{1, 2, 3};
 
-    rr.appendLastResult(vect);
-    ASSERT_EQ(vect, rr.getLastResult());
+    rr.appendShortResult(vect);
+    ASSERT_EQ(vect, rr.getShortResult());
 
-    rr.appendLastResult(vect);
-    vect = rr.getLastResult();
+    rr.appendShortResult(vect);
+    vect = rr.getShortResult();
     ASSERT_EQ(1, vect[3]);
     ASSERT_EQ(2, vect[4]);
     ASSERT_EQ(3, vect[5]);
