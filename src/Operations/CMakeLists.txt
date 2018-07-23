@@ -3,6 +3,7 @@ set(SOURCES
   RandomOperation.cpp
   RollResult.cpp
   RepeatOperation.cpp
+  SumOperation.cpp
 )
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
