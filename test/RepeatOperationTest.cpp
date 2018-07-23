@@ -60,8 +60,6 @@ TEST(RepeatOperationTest, RepeatRandomOperation)
     }
 }
 
-//TODO: Add test that makes sure that RepeatOperation won't work on
-//      multiple value operation, just singular value.
 TEST(RepeatOperationTest, CanRepeatRepeatOperation)
 {
   MockOperation::count = 0;
