@@ -2,6 +2,7 @@ set(TEST_SOURCES
   main.cpp
   GetNumberOperationTest.cpp
   RandomOperationTest.cpp
+  RollCompareTest.cpp
   RollResultTest.cpp
   MultiOperationTest.cpp
   RepeatOperationTest.cpp
