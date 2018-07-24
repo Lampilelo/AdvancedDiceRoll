@@ -6,9 +6,9 @@ RepeatOperation::RepeatOperation(IOperation* componentOperation,
     : IOperation(componentOperation), _count(count)
 {
   if (_count < 2)
-    throw std::range_error(
-        "Can't repeat less than 2 times. Given repeat count: " +
-        std::to_string(_count));
+    throw std::invalid_argument("In RepeatOperation: count(" +
+                                std::to_string(_count) +
+                                ") is lower than 2.");
 }
 
 std::unique_ptr<RollResult> RepeatOperation::execute()
