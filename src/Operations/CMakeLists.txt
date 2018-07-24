@@ -4,6 +4,7 @@ set(OP_SOURCES
   RollResult.cpp
   RepeatOperation.cpp
   SumOperation.cpp
+  DiscardOperation.cpp
   )
 
 set(RC_SOURCES
