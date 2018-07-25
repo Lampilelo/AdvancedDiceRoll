@@ -3,6 +3,8 @@
 #include "DiceRoll/Operations/RollResult.h"
 #include "DiceRoll/Operations/GetNumberOperation.hpp"
 
+using namespace DiceRoll;
+
 TEST(GetNumberOperationTest, InitializeWithIntPositive)
 {
     GetNumberOperation numOpPositive(10);

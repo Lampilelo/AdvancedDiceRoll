@@ -6,12 +6,14 @@
 #include "DiceRoll/RollCompare/Comparators.hpp"
 #include "DiceRoll/Operations/IOperation.hpp"
 
+using namespace DiceRoll;
+
 class MultiMockOperation : public IOperation {
   std::unique_ptr<RollResult> execute() {
     return std::make_unique<RollResult>();
   }
  public:
-  MultiMockOperation() : IOperation(nullptr) {}
+  MultiMockOperation() {}
 
   std::unique_ptr<RollResult> evaluate() {
     auto result = std::make_unique<RollResult>();

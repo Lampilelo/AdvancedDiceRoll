@@ -4,6 +4,8 @@
 #include "gtest/gtest.h"
 #include "DiceRoll/Operations/RandomOperation.hpp"
 
+using namespace DiceRoll;
+
 TEST(RandomOperationTest, ResultsAreInBounds)
 {
     auto op = std::make_unique<RandomOperation>(50);

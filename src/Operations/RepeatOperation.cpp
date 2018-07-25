@@ -1,23 +1,24 @@
 #include "DiceRoll/Operations/RepeatOperation.h"
 #include <string>
 
+namespace DiceRoll {
 RepeatOperation::RepeatOperation(IOperation* componentOperation,
 				 int count)
-    : IOperation(componentOperation), _count(count)
+    : ComplexOperation(componentOperation), count_(count)
 {
-  if (_count < 2)
+  if (count_ < 2)
     throw std::invalid_argument("In RepeatOperation: count(" +
-                                std::to_string(_count) +
+                                std::to_string(count_) +
                                 ") is lower than 2.");
 }
 
-std::unique_ptr<RollResult> RepeatOperation::execute()
+std::unique_ptr<RollResult> RepeatOperation::evaluate()
 {
     auto result = std::make_unique<RollResult>();
     std::string operationLog = "(";
-    for (int i = 0; i < _count; ++i)
+    for (int i = 0; i < count_; ++i)
 	{
-	    auto componentResult = _componentOp->evaluate();
+	    auto componentResult = componentOp_->evaluate();
 	    // make sequence of numbers divided by spaces
 	    operationLog.append(componentResult->getFullResult() + " ");
 	    result->appendShortResult(componentResult->getShortResult());
@@ -26,4 +27,5 @@ std::unique_ptr<RollResult> RepeatOperation::execute()
     result->setFullResult(operationLog);
     
     return result;
+}
 }

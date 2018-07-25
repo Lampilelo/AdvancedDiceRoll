@@ -1,9 +1,9 @@
 #ifndef DICE_IOPERATION_H
 #define DICE_IOPERATION_H
 
-#include "../stdafx.hpp"
 #include "DiceRoll/Operations/RollResult.h"
 
+namespace DiceRoll {
 //Base for a Decorator Pattern
 /**
  * \brief An interface for the Operation classes.
@@ -12,40 +12,17 @@
  */
 class IOperation
 {
-    /**
-     * \brief Executes current operation.
-     * 
-     * This is a method that does all the heavy lifting for an operation.
-     *
-     * \return 
-     * Returns unique pointer to RollResult which stores current operation result.
-     * Don't mistake it with evaluate()!
-     */
-    virtual std::unique_ptr<RollResult> execute() = 0;
-
-protected:
-    IOperation * const _componentOp;
-
 public:
-    IOperation(IOperation* op) : _componentOp(op) {}
-    
+  virtual ~IOperation() { }
     // Executes all operations.
-    // By default, merges _componentOp's RollResult with its.
     /**
-     * \brief Evaluates all suboperations and executes itself.
+     * \brief Is used to evaluate all suboperations and execute itself.
      *
-     * By default it calls evaluate() on it's suboperation (_componentOp)
-     * and then merges the result with its own.
-     * 
      * \return Unique pointer to the result of executing current operation
-     * and all suboperations.
+     * and all of its suboperations.
      */
-    virtual inline std::unique_ptr<RollResult> evaluate()
-    {
-	std::unique_ptr<RollResult> result = _componentOp->evaluate();
-	result->append(execute().get());
-	return result;
-    }
+  virtual std::unique_ptr<RollResult> evaluate() = 0;
 };
+}
 
 #endif //DICE_IOPERATION_H

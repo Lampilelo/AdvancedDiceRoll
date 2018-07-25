@@ -1,27 +1,28 @@
 #include "DiceRoll/Operations/RandomOperation.hpp"
 
+namespace DiceRoll {
 RandomOperation::RandomOperation(int lower, int upper)
-    : IOperation(nullptr), _lower(lower), _upper(upper)
+    : lower_(lower), upper_(upper)
 {
-    _fixedSeed = false;
+    fixedSeed_ = false;
 }
 
 RandomOperation::RandomOperation(int upper) : RandomOperation(1, upper) {}
 
-std::unique_ptr<RollResult> RandomOperation::execute() 
-{ 
-    if(_lower >= _upper) throw std::invalid_argument(
-        "In RandomOperation: " + std::to_string(_lower) + " is higher or equal to " + std::to_string(_upper));
+std::unique_ptr<RollResult> RandomOperation::evaluate()
+{
+    if(lower_ >= upper_) throw std::invalid_argument(
+        "In RandomOperation: " + std::to_string(lower_) + " is higher or equal to " + std::to_string(upper_));
 
 
     //we'll use random_device to seed the random
     //if you want to change it, call changeSeed function
     std::random_device r;
-    if (false == _fixedSeed)
-	_seed = r();
+    if (false == fixedSeed_)
+	seed_ = r();
     
-    std::default_random_engine generator(_seed);
-    std::uniform_int_distribution<int> distribution(_lower, _upper);
+    std::default_random_engine generator(seed_);
+    std::uniform_int_distribution<int> distribution(lower_, upper_);
 
     auto randomNumber = distribution(generator);
 
@@ -31,13 +32,9 @@ std::unique_ptr<RollResult> RandomOperation::execute()
     return result;
 }
 
-std::unique_ptr<RollResult> RandomOperation::evaluate()
-{
-    return execute();
-}
-
 void RandomOperation::changeSeed(unsigned newSeed)
 {
-    _fixedSeed = true;
-    _seed = newSeed;
+    fixedSeed_ = true;
+    seed_ = newSeed;
+}
 }

@@ -4,6 +4,8 @@
 #include "DiceRoll/Operations/RepeatOperation.h"
 #include "DiceRoll/Operations/RandomOperation.hpp"
 
+using namespace DiceRoll;
+
 class MockOperation : public IOperation
 {
     std::unique_ptr<RollResult> execute()
@@ -11,8 +13,6 @@ class MockOperation : public IOperation
 
 public:
     static int count;
-
-    MockOperation(): IOperation(nullptr){};
 
     // For each evaluate() static int count is incrementing.
     std::unique_ptr<RollResult> evaluate()

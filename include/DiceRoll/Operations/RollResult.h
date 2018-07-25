@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 
+namespace DiceRoll {
 /**
  * \brief Stores results from evaluating Operations.
  */
@@ -140,6 +141,6 @@ public:
     inline void setShortResult(std::vector<int>&& newResult)
     { shortResult_ = std::move(newResult); }
 };
-
+}
 
 #endif // ROLLRESULT_H

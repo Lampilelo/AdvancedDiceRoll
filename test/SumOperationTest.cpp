@@ -5,6 +5,8 @@
 #include "DiceRoll/Operations/GetNumberOperation.hpp"
 #include "DiceRoll/Operations/RepeatOperation.h"
 
+using namespace DiceRoll;
+
 TEST(SumOperationTest, ThrowInitializeWithNullptr)
 {
   EXPECT_ANY_THROW(SumOperation(nullptr));

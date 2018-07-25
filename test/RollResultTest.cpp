@@ -1,6 +1,8 @@
 #include "gtest/gtest.h"
 #include "DiceRoll/Operations/RollResult.h"
 
+using namespace DiceRoll;
+
 TEST(RollResultTest, InitWithEmptyErrorLog)
 {
     RollResult rr;

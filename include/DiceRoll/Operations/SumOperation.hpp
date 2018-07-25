@@ -2,18 +2,16 @@
 #define DICEROLL_SUMOPERATION_H
 
 #include "DiceRoll/stdafx.hpp"
-#include "DiceRoll/Operations/IOperation.hpp"
+#include "DiceRoll/Operations/ComplexOperation.hpp"
 
+namespace DiceRoll {
 /**
  * \brief Operation that sums the results of another operation.
  *
  * Method evaluate() will return one valued RollResult that stores the sum
  * of other operation's results.
 */
-class SumOperation : public IOperation {
-  // Sums componentOp's RollResult;
-  std::unique_ptr<RollResult> execute();
-
+class SumOperation : public ComplexOperation {
  public:
   /**
    * \brief SumOperation
@@ -21,7 +19,7 @@ class SumOperation : public IOperation {
    *
    * \param componentOperation Operation that needs to be summed up.
    */
-  using IOperation::IOperation;
+  explicit SumOperation(IOperation* componentOp);
 
   /**
    * \brief Sums component operation's RollResult values.
@@ -32,9 +30,8 @@ class SumOperation : public IOperation {
    * forwarded.
    * \return Unique pointer to single valued RollResult.
    */
-  inline std::unique_ptr<RollResult> evaluate() {
-    return execute();
-  }
+  virtual std::unique_ptr<RollResult> evaluate();
 };
+}
 
 #endif // DICEROLL_SUMOPERATION_H

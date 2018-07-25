@@ -1,5 +1,6 @@
 #include "DiceRoll/Operations/RollResult.h"
 
+namespace DiceRoll {
 RollResult::RollResult()
     : _hasErrors(false)
 { }
@@ -15,5 +16,4 @@ void RollResult::append(const RollResult *item)
     for(auto& error : item->getErrorLog())
 	_errorLog.push_back(error);
 }
-
-
+}

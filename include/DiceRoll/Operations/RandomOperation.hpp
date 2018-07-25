@@ -5,6 +5,7 @@
 
 #include "IOperation.hpp"
 
+namespace DiceRoll {
 /**
  * \brief Randoms a number from a given range.
  */
@@ -12,15 +13,12 @@ class RandomOperation : public IOperation
 {
     // Upper and lower limits in range for generating number. These values
     // are inclusive.
-    const int _lower, _upper;
+    const int lower_, upper_;
     // Seed for random number generator that is used in execute().
-    unsigned int _seed;
+    unsigned int seed_;
     // It is true if seed has been set, and false if not.
-    bool _fixedSeed;
+    bool fixedSeed_;
 
-    // That method is called by evaluate(), so check its doc.
-    std::unique_ptr<RollResult> execute();
-    
 public:
     // If seed is not given, it will randomize using time
     /**
@@ -63,5 +61,6 @@ public:
      */
     void changeSeed(unsigned newSeed);
 };
+}
 
 #endif // DICE_RANDOMOPERATION_H

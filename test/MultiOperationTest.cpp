@@ -5,6 +5,8 @@
 #include "DiceRoll/Operations/RandomOperation.hpp"
 #include "DiceRoll/Operations/RepeatOperation.h"
 
+using namespace DiceRoll;
+
 TEST(MultiOperationTest, DISABLED_PassingRollResultGenericEvaluate)
 {
     RandomOperation rand(6);

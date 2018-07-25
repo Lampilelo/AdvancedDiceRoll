@@ -2,8 +2,9 @@
 #define REPEATOPERATION_H
 
 #include "DiceRoll/stdafx.hpp"
-#include "DiceRoll/Operations/IOperation.hpp"
+#include "DiceRoll/Operations/ComplexOperation.hpp"
 
+namespace DiceRoll {
 /**
  * \brief Operation that repeats other operation multiple times.
  *
@@ -14,13 +15,10 @@
  * result from 4d10 dice roll you would repeat RandomOperation(10)
  * 4 times.
  */
-class RepeatOperation : public IOperation
+class RepeatOperation : public ComplexOperation
 {
-    const int _count; // how many times should it repeat.
+    const int count_; // how many times should it repeat.
 
-    // Repeats componentOp.
-    std::unique_ptr<RollResult> execute();
-    
 public:
     /**
      * \brief RepeatOperation
@@ -36,15 +34,10 @@ public:
     explicit RepeatOperation(IOperation* componentOperation,
 			     int count);
 
-    /**
-     * \brief Evaluates component operation multiple times.
-     * Evaluates component operation multiple times as specified in the 
-     * constructor.
-     *
-     *\return Unique pointer to multiple valued RollResult.
-     */
-    inline std::unique_ptr<RollResult> evaluate()
-    { return execute(); }
+    ~RepeatOperation() { }
+
+    std::unique_ptr<RollResult> evaluate();
 };
+}
 
 #endif /* REPEATOPERATION_H */

@@ -1,8 +1,12 @@
 #include "DiceRoll/Operations/SumOperation.hpp"
 
-std::unique_ptr<RollResult> SumOperation::execute() {
+namespace DiceRoll {
+SumOperation::SumOperation(IOperation* componentOp) :
+    ComplexOperation(componentOp) { }
+
+std::unique_ptr<RollResult> SumOperation::evaluate() {
   auto result = std::make_unique<RollResult>();
-  auto componentResult = _componentOp->evaluate();
+  auto componentResult = componentOp_->evaluate();
 
   if (1 == componentResult->getShortResultSize())
     return componentResult;
@@ -20,4 +24,4 @@ std::unique_ptr<RollResult> SumOperation::execute() {
 
   return result;
 }
-
+}

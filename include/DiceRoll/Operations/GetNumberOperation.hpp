@@ -3,16 +3,14 @@
 
 #include "IOperation.hpp"
 
+namespace DiceRoll {
 /**
  * \brief Creates RollResult from singular value.
  */
 class GetNumberOperation : public IOperation
 {
-    const int _number;		// stores number given by a constructor
+    const int number_;		// stores number given by a constructor
 
-    // It's called directly by evaluate, so check its doc.
-    std::unique_ptr<RollResult> execute();
-    
 public:
     /**
      * \brief Operation that creates singular value RollResult.
@@ -24,6 +22,8 @@ public:
      */
     explicit GetNumberOperation(int number);
 
+    ~GetNumberOperation() { }
+
     /**
      * \brief Evaluates an operation.
      * 
@@ -32,5 +32,6 @@ public:
      */
     std::unique_ptr<RollResult> evaluate();
 };
+}
 
 #endif //DICE_GETNUMBEROPERATION_H

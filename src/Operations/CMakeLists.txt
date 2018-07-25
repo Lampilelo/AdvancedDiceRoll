@@ -1,4 +1,5 @@
 set(OP_SOURCES
+  ComplexOperation.cpp
   GetNumberOperation.cpp
   RandomOperation.cpp
   RollResult.cpp
