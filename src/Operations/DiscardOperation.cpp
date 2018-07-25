@@ -3,11 +3,14 @@
 
 std::unique_ptr<RollResult> DiscardOperation::execute() {
   auto result = _componentOp->evaluate();
+  if (result->getShortResultSize() < 2)
+    return result;
 
   // sort according to comparator_ and leave only values that fulfull req
   auto shortResult = result->getShortResult();
   std::sort(shortResult.begin(), shortResult.end(), comparator_->compare());
   shortResult.resize(leave_amount_);
+  result->setShortResult(shortResult);
 
   // create new FullResult
   std::string newFullResult = "(dis[" + std::to_string(leave_amount_) +

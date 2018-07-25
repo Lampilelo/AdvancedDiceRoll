@@ -47,6 +47,6 @@ TEST(DiscardOperationTest, WorkWithMultipleValue)
   DiscardOperation disOp(&mulOp, 1, &comp);
   auto result = disOp.evaluate();
 
-  EXPECT_EQ(result->getShortResult(), std::vector<int>({1}));
+  EXPECT_EQ(result->getShortResult(), std::vector<int>({4}));
   EXPECT_EQ(result->getFullResult(), "(dis[1, >]: 4 :(3 2 4 1))");
 }
