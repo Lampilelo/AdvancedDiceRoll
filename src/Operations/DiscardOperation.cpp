@@ -4,7 +4,8 @@
 namespace DiceRoll {
 std::unique_ptr<RollResult> DiscardOperation::execute(
     std::unique_ptr<RollResult> component_result) {
-  if (component_result->getShortResultSize() < 2)
+  if (component_result->getShortResultSize() < 2 ||
+      (size_t)leave_amount_ >= component_result->getShortResultSize())
     return component_result;
 
   // sort according to comparator_ and leave only values that fulfull req
