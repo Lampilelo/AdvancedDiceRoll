@@ -11,7 +11,7 @@ std::unique_ptr<RollResult> SumOperation::evaluate() {
   if (1 == componentResult->getShortResultSize())
     return componentResult;
 
-  std::string operationLog = "(+ " + componentResult->getFullResult() + ')';
+  std::string operationLog = ": sum" + componentResult->getFullResult();
   // auto compFullResult = componentResult->getFullResult();
   // compFullResult.insert(compFullResult.find(""))
 

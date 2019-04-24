@@ -15,12 +15,14 @@ std::unique_ptr<RollResult> DiscardOperation::execute(
   component_result->setShortResult(shortResult);
 
   // create new FullResult
-  std::string newFullResult = "(dis[" + std::to_string(leave_amount_) +
-      ", " + comparator_->symbol() + "]: ";
+  std::string newFullResult = "(";
   for(auto value : shortResult) {
     newFullResult += std::to_string(value) + " ";
   }
-  newFullResult.append(':' + component_result->getFullResult() + ')');
+  newFullResult += ": dis[" + std::to_string(leave_amount_) +
+      ", " + comparator_->symbol() + "]";
+
+  newFullResult.append(component_result->getFullResult() + ')');
   component_result->setFullResult(newFullResult);
 
   return component_result;

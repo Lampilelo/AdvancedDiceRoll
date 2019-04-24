@@ -17,8 +17,8 @@ namespace DiceRoll {
  * the result of componentOp.
  *
  * Syntax for RollResult:
- * (dis[<leave_amount>, <comparator_symbol>]: <resulting numbers> :<rest>)
- * e.g. (dis[2, >]: 5 4 :(1 2 3 4 5))
+ * (<resulting numbers> : dis[<leave_amount>, <comparator_symbol>]<rest>)
+ * e.g. (5 4 : dis[2, >](1 2 3 4 5))
  */
 class DiscardOperation : public ComplexOperation {
   const int leave_amount_;

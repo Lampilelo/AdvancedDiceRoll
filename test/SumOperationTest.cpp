@@ -30,7 +30,7 @@ TEST(SumOperationTest, SumRepeatOperation)
   auto result = sumOp.evaluate();
 
   EXPECT_EQ(result->getShortResult(), std::vector<int>({15}));
-  EXPECT_EQ(result->getFullResult(), "(15 (+ (5 5 5)))");
+  EXPECT_EQ(result->getFullResult(), "(15 : sum(5 5 5))");
 }
 
 TEST(SumOperationTest, RepeatSumOperation)
@@ -45,9 +45,9 @@ TEST(SumOperationTest, RepeatSumOperation)
 
   EXPECT_EQ(repResult->getShortResult(), std::vector<int>(3, 12));
   EXPECT_EQ(repResult->getFullResult(),
-            "((12 (+ (6 6))) (12 (+ (6 6))) (12 (+ (6 6))))");
+            "((12 : sum(6 6)) (12 : sum(6 6)) (12 : sum(6 6)))");
 
   EXPECT_EQ(sumResult->getShortResult(), std::vector<int>({36}));
   EXPECT_EQ(sumResult->getFullResult(),
-            "(36 (+ ((12 (+ (6 6))) (12 (+ (6 6))) (12 (+ (6 6))))))");
+            "(36 : sum((12 : sum(6 6)) (12 : sum(6 6)) (12 : sum(6 6))))");
 }
